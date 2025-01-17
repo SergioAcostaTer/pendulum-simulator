@@ -1,0 +1,8 @@
+software\ulpgc\simulator\architecture\control\PendulumSimulator.class
+software\ulpgc\simulator\app\SwingPendulumDisplay.class
+software\ulpgc\simulator\app\Main.class
+software\ulpgc\simulator\architecture\control\PendulumPresenter$1.class
+software\ulpgc\simulator\architecture\control\PendulumPresenter.class
+software\ulpgc\simulator\architecture\model\Pendulum.class
+software\ulpgc\simulator\app\PendulumGraph.class
+software\ulpgc\simulator\architecture\DataView\PendulumData.class

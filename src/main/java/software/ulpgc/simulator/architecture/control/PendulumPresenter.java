@@ -18,7 +18,7 @@ public class PendulumPresenter {
         this.pendulum = pendulum;
     }
 
-    public  void execute() {
+    public void execute() {
         new Timer().schedule(task(), 0, period);
     }
 
@@ -32,9 +32,24 @@ public class PendulumPresenter {
     }
 
     private void updateView() {
-        pendulum = simulator.simulate(pendulum);
-        double pendulumX = 400 + pendulum.L() * 200 * Math.sin(pendulum.theta());
-        double pendulumY = 100 + pendulum.L() * 200 * Math.cos(pendulum.theta());
-        view.updatePendulumPosition(pendulumX, pendulumY);
+        int originX = view.getOriginX();
+        int originY = view.getOriginY();
+
+        if (!view.isDragging()) {
+            pendulum = simulator.simulate(pendulum);
+            double pendulumX = originX + pendulum.L() * 200 * Math.sin(pendulum.theta());
+            double pendulumY = originY + pendulum.L() * 200 * Math.cos(pendulum.theta());
+            view.updatePendulumPosition(pendulumX, pendulumY);
+        } else {
+            // Calculate angle and rope length based on drag position
+            double dx = view.getPendulumX() - originX;
+            double dy = view.getPendulumY() - originY;
+            double newTheta = Math.atan2(dx, dy);
+            double newRopeLength = view.getNewRopeLength();
+
+            // Update pendulum state
+            pendulum = new Pendulum(newRopeLength, pendulum.r(), pendulum.g(), newTheta, 0.0);
+        }
     }
+
 }
