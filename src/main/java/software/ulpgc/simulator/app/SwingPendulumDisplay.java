@@ -40,15 +40,6 @@ public class SwingPendulumDisplay extends JPanel {
         });
     }
 
-    private boolean isNearPendulum(int x, int y) {
-        double distance = Math.hypot(x - pendulumX, y - pendulumY);
-        return distance < 20;
-    }
-
-    private double calculateRopeLength(double x, double y) {
-        return Math.hypot(x - originX, y - originY) / 200.0;
-    }
-
     public int getOriginX() {
         return originX;
     }
@@ -65,6 +56,18 @@ public class SwingPendulumDisplay extends JPanel {
 
     public double getNewRopeLength() {
         return calculateRopeLength(pendulumX, pendulumY);
+    }
+
+    public boolean isDragging() {
+        return dragging;
+    }
+
+    public double getPendulumX() {
+        return pendulumX;
+    }
+
+    public double getPendulumY() {
+        return pendulumY;
     }
 
     @Override
@@ -84,15 +87,12 @@ public class SwingPendulumDisplay extends JPanel {
         g2d.fillOval(originX - 4, originY - 4, 8, 8);
     }
 
-    public boolean isDragging() {
-        return dragging;
+    private boolean isNearPendulum(int x, int y) {
+        double distance = Math.hypot(x - pendulumX, y - pendulumY);
+        return distance < 20;
     }
 
-    public double getPendulumX() {
-        return pendulumX;
-    }
-
-    public double getPendulumY() {
-        return pendulumY;
+    private double calculateRopeLength(double x, double y) {
+        return Math.hypot(x - originX, y - originY) / 200.0;
     }
 }
