@@ -41,13 +41,11 @@ public class PendulumPresenter {
             double pendulumY = originY + pendulum.L() * 200 * Math.cos(pendulum.theta());
             view.updatePendulumPosition(pendulumX, pendulumY);
         } else {
-            // Calculate angle and rope length based on drag position
             double dx = view.getPendulumX() - originX;
             double dy = view.getPendulumY() - originY;
             double newTheta = Math.atan2(dx, dy);
             double newRopeLength = view.getNewRopeLength();
 
-            // Update pendulum state
             pendulum = new Pendulum(newRopeLength, pendulum.r(), pendulum.g(), newTheta, 0.0);
         }
     }

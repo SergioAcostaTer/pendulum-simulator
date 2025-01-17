@@ -73,14 +73,15 @@ public class SwingPendulumDisplay extends JPanel {
         Graphics2D g2d = (Graphics2D) g;
 
         g2d.setColor(Color.BLACK);
-        g2d.setStroke(new BasicStroke(2));
+        g2d.setStroke(new BasicStroke(3));
         g2d.drawLine(originX, originY, (int) pendulumX, (int) pendulumY);
 
         g2d.setColor(Color.RED);
-        g2d.fillOval((int) pendulumX - 10, (int) pendulumY - 10, 20, 20);
+        int ballRadius = 30;
+        g2d.fillOval((int) pendulumX - ballRadius, (int) pendulumY - ballRadius, 2 * ballRadius, 2 * ballRadius);
 
         g2d.setColor(Color.BLUE);
-        g2d.fillOval(originX - 5, originY - 5, 10, 10);
+        g2d.fillOval(originX - 4, originY - 4, 8, 8);
     }
 
     public boolean isDragging() {
