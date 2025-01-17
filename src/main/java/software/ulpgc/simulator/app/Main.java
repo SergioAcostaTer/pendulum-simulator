@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        Pendulum pendulum = new Pendulum(1, 1, -9.8, Math.PI/4, 0.0);
+        Pendulum pendulum = new Pendulum(1, 1, -9.8, Math.PI / 4, 0.0);
         PendulumSimulator simulator = new PendulumSimulator(0.001);
         SwingPendulumDisplay view = new SwingPendulumDisplay();
 

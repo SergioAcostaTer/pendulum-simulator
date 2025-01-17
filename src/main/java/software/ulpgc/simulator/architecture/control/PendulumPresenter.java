@@ -7,10 +7,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class PendulumPresenter {
+    private final static int period = (int) (1000 * 0.001);
     private final SwingPendulumDisplay view;
     private final PendulumSimulator simulator;
     private Pendulum pendulum;
-    private final static int period = (int) (1000 * 0.001);
 
     public PendulumPresenter(SwingPendulumDisplay view, PendulumSimulator simulator, Pendulum pendulum) {
         this.view = view;
